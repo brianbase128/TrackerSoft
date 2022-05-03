@@ -16,7 +16,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{actividadController.selected != null}">
                         <h:outputText value="#{bundle.ViewActividadLabel_actId}"/>
-                        <h:outputText value="#{actividadController.selected.actId}" title="#{bundle.ViewActividadTitle_actId}"/>
+              
                         <h:outputText value="#{bundle.ViewActividadLabel_actNombre}"/>
                         <h:outputText value="#{actividadController.selected.actNombre}" title="#{bundle.ViewActividadTitle_actNombre}"/>
                         <h:outputText value="#{bundle.ViewActividadLabel_actDescripcion}"/>
@@ -34,17 +34,7 @@
                         <h:outputText value="#{bundle.ViewActividadLabel_actComentario}"/>
                         <h:outputText value="#{actividadController.selected.actComentario}" title="#{bundle.ViewActividadTitle_actComentario}"/>
                         <h:outputText value="#{bundle.ViewActividadLabel_actUsuarioCreacion}"/>
-                        <h:outputText value="#{actividadController.selected.actUsuarioCreacion}" title="#{bundle.ViewActividadTitle_actUsuarioCreacion}"/>
-                        <h:outputText value="#{bundle.ViewActividadLabel_actFechaCreacion}"/>
-                        <h:outputText value="#{actividadController.selected.actFechaCreacion}" title="#{bundle.ViewActividadTitle_actFechaCreacion}">
-                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                        </h:outputText>
-                        <h:outputText value="#{bundle.ViewActividadLabel_actUsuarioModificacion}"/>
-                        <h:outputText value="#{actividadController.selected.actUsuarioModificacion}" title="#{bundle.ViewActividadTitle_actUsuarioModificacion}"/>
-                        <h:outputText value="#{bundle.ViewActividadLabel_actFechaModificacion}"/>
-                        <h:outputText value="#{actividadController.selected.actFechaModificacion}" title="#{bundle.ViewActividadTitle_actFechaModificacion}">
-                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                        </h:outputText>
+                       
                         <h:outputText value="#{bundle.ViewActividadLabel_actEstado}"/>
                         <h:outputText value="#{actividadController.selected.actEstado}" title="#{bundle.ViewActividadTitle_actEstado}"/>
                         <h:outputText value="#{bundle.ViewActividadLabel_facId}"/>

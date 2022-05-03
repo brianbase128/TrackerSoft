@@ -12,9 +12,7 @@
             <h:form id="ActividadCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{actividadController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateActividadLabel_actId}" for="actId" />
-                        <p:inputText id="actId" value="#{actividadController.selected.actId}" title="#{bundle.CreateActividadTitle_actId}" required="true" requiredMessage="#{bundle.CreateActividadRequiredMessage_actId}"/>
-                        <p:outputLabel value="#{bundle.CreateActividadLabel_actNombre}" for="actNombre" />
+                       <p:outputLabel value="#{bundle.CreateActividadLabel_actNombre}" for="actNombre" />
                         <p:inputText id="actNombre" value="#{actividadController.selected.actNombre}" title="#{bundle.CreateActividadTitle_actNombre}" />
                         <p:outputLabel value="#{bundle.CreateActividadLabel_actDescripcion}" for="actDescripcion" />
                         <p:inputText id="actDescripcion" value="#{actividadController.selected.actDescripcion}" title="#{bundle.CreateActividadTitle_actDescripcion}" />
@@ -28,14 +26,6 @@
                         <p:calendar id="actFechaEntrega" pattern="MM/dd/yyyy HH:mm:ss" value="#{actividadController.selected.actFechaEntrega}" title="#{bundle.EditActividadTitle_actFechaEntrega}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateActividadLabel_actComentario}" for="actComentario" />
                         <p:inputText id="actComentario" value="#{actividadController.selected.actComentario}" title="#{bundle.CreateActividadTitle_actComentario}" />
-                        <p:outputLabel value="#{bundle.CreateActividadLabel_actUsuarioCreacion}" for="actUsuarioCreacion" />
-                        <p:inputText id="actUsuarioCreacion" value="#{actividadController.selected.actUsuarioCreacion}" title="#{bundle.CreateActividadTitle_actUsuarioCreacion}" />
-                        <p:outputLabel value="#{bundle.CreateActividadLabel_actFechaCreacion}" for="actFechaCreacion" />
-                        <p:calendar id="actFechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{actividadController.selected.actFechaCreacion}" title="#{bundle.EditActividadTitle_actFechaCreacion}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateActividadLabel_actUsuarioModificacion}" for="actUsuarioModificacion" />
-                        <p:inputText id="actUsuarioModificacion" value="#{actividadController.selected.actUsuarioModificacion}" title="#{bundle.CreateActividadTitle_actUsuarioModificacion}" />
-                        <p:outputLabel value="#{bundle.CreateActividadLabel_actFechaModificacion}" for="actFechaModificacion" />
-                        <p:calendar id="actFechaModificacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{actividadController.selected.actFechaModificacion}" title="#{bundle.EditActividadTitle_actFechaModificacion}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateActividadLabel_actEstado}" for="actEstado" />
                         <p:inputText id="actEstado" value="#{actividadController.selected.actEstado}" title="#{bundle.CreateActividadTitle_actEstado}" />
                         <p:outputLabel value="#{bundle.CreateActividadLabel_facId}" for="facId" />

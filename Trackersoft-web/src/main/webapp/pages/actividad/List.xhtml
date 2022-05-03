@@ -27,12 +27,6 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListActividadTitle_actId}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.actId}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListActividadTitle_actNombre}"/>
                             </f:facet>
                             <h:outputText value="#{item.actNombre}"/>
@@ -75,34 +69,7 @@
                             </f:facet>
                             <h:outputText value="#{item.actComentario}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListActividadTitle_actUsuarioCreacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.actUsuarioCreacion}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListActividadTitle_actFechaCreacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.actFechaCreacion}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                            </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListActividadTitle_actUsuarioModificacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.actUsuarioModificacion}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListActividadTitle_actFechaModificacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.actFechaModificacion}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                            </h:outputText>
-                        </p:column>
+                       
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListActividadTitle_actEstado}"/>
