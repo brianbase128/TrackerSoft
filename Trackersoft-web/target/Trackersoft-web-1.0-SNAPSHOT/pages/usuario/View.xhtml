@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UsuarioViewDlg" widgetVar="UsuarioViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUsuarioTitle}">
+            <h:form id="UsuarioViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{usuarioController.selected != null}">
+                        <h:outputText value="#{bundle.ViewUsuarioLabel_usuId}"/>
+                        <h:outputText value="#{usuarioController.selected.usuId}" title="#{bundle.ViewUsuarioTitle_usuId}"/>
+                        <h:outputText value="#{bundle.ViewUsuarioLabel_usuToken}"/>
+                        <h:outputText value="#{usuarioController.selected.usuToken}" title="#{bundle.ViewUsuarioTitle_usuToken}"/>
+                        <h:outputText value="#{bundle.ViewUsuarioLabel_usuNombre}"/>
+                        <h:outputText value="#{usuarioController.selected.usuNombre}" title="#{bundle.ViewUsuarioTitle_usuNombre}"/>
+                        <h:outputText value="#{bundle.ViewUsuarioLabel_usuTipoDocumento}"/>
+                        <h:outputText value="#{usuarioController.selected.usuTipoDocumento}" title="#{bundle.ViewUsuarioTitle_usuTipoDocumento}"/>
+                        <h:outputText value="#{bundle.ViewUsuarioLabel_usuNumeroDocumento}"/>
+                        <h:outputText value="#{usuarioController.selected.usuNumeroDocumento}" title="#{bundle.ViewUsuarioTitle_usuNumeroDocumento}"/>
+                        <h:outputText value="#{bundle.ViewUsuarioLabel_usuCorreo}"/>
+                        <h:outputText value="#{usuarioController.selected.usuCorreo}" title="#{bundle.ViewUsuarioTitle_usuCorreo}"/>
+                        <h:outputText value="#{bundle.ViewUsuarioLabel_usuUsuarioCreacion}"/>
+                        <h:outputText value="#{bundle.ViewUsuarioLabel_usuEstado}"/>
+                        <h:outputText value="#{usuarioController.selected.usuEstado}" title="#{bundle.ViewUsuarioTitle_usuEstado}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="UsuarioViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

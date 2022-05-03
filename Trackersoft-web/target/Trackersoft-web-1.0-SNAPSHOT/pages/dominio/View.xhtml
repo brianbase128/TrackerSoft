@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DominioViewDlg" widgetVar="DominioViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewDominioTitle}">
+            <h:form id="DominioViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{dominioController.selected != null}">
+                        <h:outputText value="#{bundle.ViewDominioLabel_domId}"/>
+                        <h:outputText value="#{dominioController.selected.domId}" title="#{bundle.ViewDominioTitle_domId}"/>
+                        <h:outputText value="#{bundle.ViewDominioLabel_domCodigo}"/>
+                        <h:outputText value="#{dominioController.selected.domCodigo}" title="#{bundle.ViewDominioTitle_domCodigo}"/>
+                        <h:outputText value="#{bundle.ViewDominioLabel_domDescripcion}"/>
+                        <h:outputText value="#{dominioController.selected.domDescripcion}" title="#{bundle.ViewDominioTitle_domDescripcion}"/>
+                        <h:outputText value="#{bundle.ViewDominioLabel_domEstado}"/>
+                        <h:outputText value="#{dominioController.selected.domEstado}" title="#{bundle.ViewDominioTitle_domEstado}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="DominioViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

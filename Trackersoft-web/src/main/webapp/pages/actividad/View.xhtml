@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <ui:composition>
+
+        <p:dialog id="ActividadViewDlg" widgetVar="ActividadViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewActividadTitle}">
+            <h:form id="ActividadViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{actividadController.selected != null}">
+                        <h:outputText value="#{bundle.ViewActividadLabel_actId}"/>
+                        <h:outputText value="#{actividadController.selected.actId}" title="#{bundle.ViewActividadTitle_actId}"/>
+                        <h:outputText value="#{bundle.ViewActividadLabel_actNombre}"/>
+                        <h:outputText value="#{actividadController.selected.actNombre}" title="#{bundle.ViewActividadTitle_actNombre}"/>
+                        <h:outputText value="#{bundle.ViewActividadLabel_actDescripcion}"/>
+                        <h:outputText value="#{actividadController.selected.actDescripcion}" title="#{bundle.ViewActividadTitle_actDescripcion}"/>
+                        <h:outputText value="#{bundle.ViewActividadLabel_actResponsable}"/>
+                        <h:outputText value="#{actividadController.selected.actResponsable}" title="#{bundle.ViewActividadTitle_actResponsable}"/>
+                        <h:outputText value="#{bundle.ViewActividadLabel_actTiempoEstimado}"/>
+                        <h:outputText value="#{actividadController.selected.actTiempoEstimado}" title="#{bundle.ViewActividadTitle_actTiempoEstimado}"/>
+                        <h:outputText value="#{bundle.ViewActividadLabel_actTiempoInvertido}"/>
+                        <h:outputText value="#{actividadController.selected.actTiempoInvertido}" title="#{bundle.ViewActividadTitle_actTiempoInvertido}"/>
+                        <h:outputText value="#{bundle.ViewActividadLabel_actFechaEntrega}"/>
+                        <h:outputText value="#{actividadController.selected.actFechaEntrega}" title="#{bundle.ViewActividadTitle_actFechaEntrega}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewActividadLabel_actComentario}"/>
+                        <h:outputText value="#{actividadController.selected.actComentario}" title="#{bundle.ViewActividadTitle_actComentario}"/>
+                        <h:outputText value="#{bundle.ViewActividadLabel_actUsuarioCreacion}"/>
+                        <h:outputText value="#{actividadController.selected.actUsuarioCreacion}" title="#{bundle.ViewActividadTitle_actUsuarioCreacion}"/>
+                        <h:outputText value="#{bundle.ViewActividadLabel_actFechaCreacion}"/>
+                        <h:outputText value="#{actividadController.selected.actFechaCreacion}" title="#{bundle.ViewActividadTitle_actFechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewActividadLabel_actUsuarioModificacion}"/>
+                        <h:outputText value="#{actividadController.selected.actUsuarioModificacion}" title="#{bundle.ViewActividadTitle_actUsuarioModificacion}"/>
+                        <h:outputText value="#{bundle.ViewActividadLabel_actFechaModificacion}"/>
+                        <h:outputText value="#{actividadController.selected.actFechaModificacion}" title="#{bundle.ViewActividadTitle_actFechaModificacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewActividadLabel_actEstado}"/>
+                        <h:outputText value="#{actividadController.selected.actEstado}" title="#{bundle.ViewActividadTitle_actEstado}"/>
+                        <h:outputText value="#{bundle.ViewActividadLabel_facId}"/>
+                        <h:outputText value="#{actividadController.selected.facId}" title="#{bundle.ViewActividadTitle_facId}"/>
+                        <h:outputText value="#{bundle.ViewActividadLabel_provId}"/>
+                        <h:outputText value="#{actividadController.selected.provId}" title="#{bundle.ViewActividadTitle_provId}"/>
+                        <h:outputText value="#{bundle.ViewActividadLabel_proyId}"/>
+                        <h:outputText value="#{actividadController.selected.proyId}" title="#{bundle.ViewActividadTitle_proyId}"/>
+                        <h:outputText value="#{bundle.ViewActividadLabel_tarId}"/>
+                        <h:outputText value="#{actividadController.selected.tarId}" title="#{bundle.ViewActividadTitle_tarId}"/>
+                        <h:outputText value="#{bundle.ViewActividadLabel_usuId}"/>
+                        <h:outputText value="#{actividadController.selected.usuId}" title="#{bundle.ViewActividadTitle_usuId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ActividadViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FacturaViewDlg" widgetVar="FacturaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewFacturaTitle}">
+            <h:form id="FacturaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{facturaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewFacturaLabel_facId}"/>
+                        <h:outputText value="#{facturaController.selected.facId}" title="#{bundle.ViewFacturaTitle_facId}"/>
+                        <h:outputText value="#{bundle.ViewFacturaLabel_facCodigo}"/>
+                        <h:outputText value="#{facturaController.selected.facCodigo}" title="#{bundle.ViewFacturaTitle_facCodigo}"/>
+                        <h:outputText value="#{bundle.ViewFacturaLabel_facFechaCreacion}"/>
+                        <h:outputText value="#{facturaController.selected.facFechaCreacion}" title="#{bundle.ViewFacturaTitle_facFechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFacturaLabel_facFechaVencimiento}"/>
+                        <h:outputText value="#{facturaController.selected.facFechaVencimiento}" title="#{bundle.ViewFacturaTitle_facFechaVencimiento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFacturaLabel_facValor}"/>
+                        <h:outputText value="#{facturaController.selected.facValor}" title="#{bundle.ViewFacturaTitle_facValor}"/>
+                        <h:outputText value="#{bundle.ViewFacturaLabel_facEstado}"/>
+                        <h:outputText value="#{facturaController.selected.facEstado}" title="#{bundle.ViewFacturaTitle_facEstado}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="FacturaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

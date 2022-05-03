@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ClienteCreateDlg" widgetVar="ClienteCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateClienteTitle}">
+            <h:form id="ClienteCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{clienteController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateClienteLabel_cliNombre}" for="cliNombre" />
+                        <p:inputText id="cliNombre" value="#{clienteController.selected.cliNombre}" title="#{bundle.CreateClienteTitle_cliNombre}" />
+                        <p:outputLabel value="#{bundle.CreateClienteLabel_cliTipoDocumento}" for="cliTipoDocumento" />
+                        <p:inputText id="cliTipoDocumento" value="#{clienteController.selected.cliTipoDocumento}" title="#{bundle.CreateClienteTitle_cliTipoDocumento}" />
+                        <p:outputLabel value="#{bundle.CreateClienteLabel_cliNumeroDocumento}" for="cliNumeroDocumento" />
+                        <p:inputText id="cliNumeroDocumento" value="#{clienteController.selected.cliNumeroDocumento}" title="#{bundle.CreateClienteTitle_cliNumeroDocumento}" />
+                        <p:outputLabel value="#{bundle.CreateClienteLabel_cliCorreo}" for="cliCorreo" />
+                        <p:inputText id="cliCorreo" value="#{clienteController.selected.cliCorreo}" title="#{bundle.CreateClienteTitle_cliCorreo}" />
+                        <p:outputLabel value="#{bundle.CreateClienteLabel_cliEstado}" for="cliEstado" />
+                        <p:inputText id="cliEstado" value="#{clienteController.selected.cliEstado}" title="#{bundle.CreateClienteTitle_cliEstado}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{clienteController.create}" value="#{bundle.Save}" update="display,:ClienteListForm:datalist,:growl" oncomplete="handleSubmit(args,'ClienteCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ClienteCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

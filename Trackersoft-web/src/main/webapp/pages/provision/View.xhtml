@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProvisionViewDlg" widgetVar="ProvisionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewProvisionTitle}">
+            <h:form id="ProvisionViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{provisionController.selected != null}">
+                        <h:outputText value="#{bundle.ViewProvisionLabel_provId}"/>
+                        <h:outputText value="#{provisionController.selected.provId}" title="#{bundle.ViewProvisionTitle_provId}"/>
+                        <h:outputText value="#{bundle.ViewProvisionLabel_provPeriodo}"/>
+                        <h:outputText value="#{provisionController.selected.provPeriodo}" title="#{bundle.ViewProvisionTitle_provPeriodo}"/>
+                        <h:outputText value="#{bundle.ViewProvisionLabel_provValor}"/>
+                        <h:outputText value="#{provisionController.selected.provValor}" title="#{bundle.ViewProvisionTitle_provValor}"/>
+                        <h:outputText value="#{bundle.ViewProvisionLabel_provEstado}"/>
+                        <h:outputText value="#{provisionController.selected.provEstado}" title="#{bundle.ViewProvisionTitle_provEstado}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ProvisionViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DominioCreateDlg" widgetVar="DominioCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateDominioTitle}">
+            <h:form id="DominioCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{dominioController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateDominioLabel_domId}" for="domId" />
+                        <p:inputText id="domId" value="#{dominioController.selected.domId}" title="#{bundle.CreateDominioTitle_domId}" required="true" requiredMessage="#{bundle.CreateDominioRequiredMessage_domId}"/>
+                        <p:outputLabel value="#{bundle.CreateDominioLabel_domCodigo}" for="domCodigo" />
+                        <p:inputText id="domCodigo" value="#{dominioController.selected.domCodigo}" title="#{bundle.CreateDominioTitle_domCodigo}" />
+                        <p:outputLabel value="#{bundle.CreateDominioLabel_domDescripcion}" for="domDescripcion" />
+                        <p:inputText id="domDescripcion" value="#{dominioController.selected.domDescripcion}" title="#{bundle.CreateDominioTitle_domDescripcion}" />
+                        <p:outputLabel value="#{bundle.CreateDominioLabel_domEstado}" for="domEstado" />
+                        <p:inputText id="domEstado" value="#{dominioController.selected.domEstado}" title="#{bundle.CreateDominioTitle_domEstado}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{dominioController.create}" value="#{bundle.Save}" update="display,:DominioListForm:datalist,:growl" oncomplete="handleSubmit(args,'DominioCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DominioCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

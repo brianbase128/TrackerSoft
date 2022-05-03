@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UsuarioRolCreateDlg" widgetVar="UsuarioRolCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUsuarioRolTitle}">
+            <h:form id="UsuarioRolCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{usuarioRolController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateUsuarioRolLabel_usurolId}" for="usurolId" />
+                        <p:inputText id="usurolId" value="#{usuarioRolController.selected.usurolId}" title="#{bundle.CreateUsuarioRolTitle_usurolId}" required="true" requiredMessage="#{bundle.CreateUsuarioRolRequiredMessage_usurolId}"/>
+                        <p:outputLabel value="#{bundle.CreateUsuarioRolLabel_usurolDescripcion}" for="usurolDescripcion" />
+                        <p:inputText id="usurolDescripcion" value="#{usuarioRolController.selected.usurolDescripcion}" title="#{bundle.CreateUsuarioRolTitle_usurolDescripcion}" />
+                        <p:outputLabel value="#{bundle.CreateUsuarioRolLabel_usurolEstado}" for="usurolEstado" />
+                        <p:inputText id="usurolEstado" value="#{usuarioRolController.selected.usurolEstado}" title="#{bundle.CreateUsuarioRolTitle_usurolEstado}" />
+                        <p:outputLabel value="#{bundle.CreateUsuarioRolLabel_rolId}" for="rolId" />
+                        <p:selectOneMenu id="rolId" value="#{usuarioRolController.selected.rolId}" required="true" requiredMessage="#{bundle.EditUsuarioRolRequiredMessage_rolId}">
+                            <f:selectItems value="#{rolController.itemsAvailableSelectOne}"
+                                           var="rolIdItem"
+                                           itemValue="#{rolIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateUsuarioRolLabel_usuId}" for="usuId" />
+                        <p:selectOneMenu id="usuId" value="#{usuarioRolController.selected.usuId}" required="true" requiredMessage="#{bundle.EditUsuarioRolRequiredMessage_usuId}">
+                            <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
+                                           var="usuIdItem"
+                                           itemValue="#{usuIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{usuarioRolController.create}" value="#{bundle.Save}" update="display,:UsuarioRolListForm:datalist,:growl" oncomplete="handleSubmit(args,'UsuarioRolCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UsuarioRolCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

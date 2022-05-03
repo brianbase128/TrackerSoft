@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProvisionEditDlg" widgetVar="ProvisionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditProvisionTitle}">
+            <h:form id="ProvisionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{provisionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditProvisionLabel_provId}" for="provId" />
+                        <p:inputText id="provId" value="#{provisionController.selected.provId}" title="#{bundle.EditProvisionTitle_provId}" required="true" requiredMessage="#{bundle.EditProvisionRequiredMessage_provId}"/>
+                        <p:outputLabel value="#{bundle.EditProvisionLabel_provPeriodo}" for="provPeriodo" />
+                        <p:inputText id="provPeriodo" value="#{provisionController.selected.provPeriodo}" title="#{bundle.EditProvisionTitle_provPeriodo}" />
+                        <p:outputLabel value="#{bundle.EditProvisionLabel_provValor}" for="provValor" />
+                        <p:inputText id="provValor" value="#{provisionController.selected.provValor}" title="#{bundle.EditProvisionTitle_provValor}" />
+                        <p:outputLabel value="#{bundle.EditProvisionLabel_provEstado}" for="provEstado" />
+                        <p:inputText id="provEstado" value="#{provisionController.selected.provEstado}" title="#{bundle.EditProvisionTitle_provEstado}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{provisionController.update}" value="#{bundle.Save}" update="display,:ProvisionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ProvisionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ProvisionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

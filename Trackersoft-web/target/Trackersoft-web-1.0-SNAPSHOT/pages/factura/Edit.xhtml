@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FacturaEditDlg" widgetVar="FacturaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditFacturaTitle}">
+            <h:form id="FacturaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{facturaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditFacturaLabel_facId}" for="facId" />
+                        <p:inputText id="facId" value="#{facturaController.selected.facId}" title="#{bundle.EditFacturaTitle_facId}" required="true" requiredMessage="#{bundle.EditFacturaRequiredMessage_facId}"/>
+                        <p:outputLabel value="#{bundle.EditFacturaLabel_facCodigo}" for="facCodigo" />
+                        <p:inputText id="facCodigo" value="#{facturaController.selected.facCodigo}" title="#{bundle.EditFacturaTitle_facCodigo}" />
+                        <p:outputLabel value="#{bundle.EditFacturaLabel_facFechaCreacion}" for="facFechaCreacion" />
+                        <p:calendar id="facFechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{facturaController.selected.facFechaCreacion}" title="#{bundle.EditFacturaTitle_facFechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditFacturaLabel_facFechaVencimiento}" for="facFechaVencimiento" />
+                        <p:calendar id="facFechaVencimiento" pattern="MM/dd/yyyy HH:mm:ss" value="#{facturaController.selected.facFechaVencimiento}" title="#{bundle.EditFacturaTitle_facFechaVencimiento}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditFacturaLabel_facValor}" for="facValor" />
+                        <p:inputText id="facValor" value="#{facturaController.selected.facValor}" title="#{bundle.EditFacturaTitle_facValor}" />
+                        <p:outputLabel value="#{bundle.EditFacturaLabel_facEstado}" for="facEstado" />
+                        <p:inputText id="facEstado" value="#{facturaController.selected.facEstado}" title="#{bundle.EditFacturaTitle_facEstado}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{facturaController.update}" value="#{bundle.Save}" update="display,:FacturaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'FacturaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FacturaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

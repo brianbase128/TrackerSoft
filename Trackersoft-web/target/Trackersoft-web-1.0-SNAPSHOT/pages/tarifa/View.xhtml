@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TarifaViewDlg" widgetVar="TarifaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTarifaTitle}">
+            <h:form id="TarifaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tarifaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTarifaLabel_tarId}"/>
+                        <h:outputText value="#{tarifaController.selected.tarId}" title="#{bundle.ViewTarifaTitle_tarId}"/>
+                        <h:outputText value="#{bundle.ViewTarifaLabel_tarNombre}"/>
+                        <h:outputText value="#{tarifaController.selected.tarNombre}" title="#{bundle.ViewTarifaTitle_tarNombre}"/>
+                        <h:outputText value="#{bundle.ViewTarifaLabel_tarTipo}"/>
+                        <h:outputText value="#{tarifaController.selected.tarTipo}" title="#{bundle.ViewTarifaTitle_tarTipo}"/>
+                        <h:outputText value="#{bundle.ViewTarifaLabel_tarValor}"/>
+                        <h:outputText value="#{tarifaController.selected.tarValor}" title="#{bundle.ViewTarifaTitle_tarValor}"/>
+                        <h:outputText value="#{bundle.ViewTarifaLabel_tarFechaInicio}"/>
+                        <h:outputText value="#{tarifaController.selected.tarFechaInicio}" title="#{bundle.ViewTarifaTitle_tarFechaInicio}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewTarifaLabel_tarFechaFin}"/>
+                        <h:outputText value="#{tarifaController.selected.tarFechaFin}" title="#{bundle.ViewTarifaTitle_tarFechaFin}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewTarifaLabel_tarUsuarioCreacion}"/>
+                        <h:outputText value="#{tarifaController.selected.tarUsuarioCreacion}" title="#{bundle.ViewTarifaTitle_tarUsuarioCreacion}"/>
+                        <h:outputText value="#{bundle.ViewTarifaLabel_tarFechaCreacion}"/>
+                        <h:outputText value="#{tarifaController.selected.tarFechaCreacion}" title="#{bundle.ViewTarifaTitle_tarFechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewTarifaLabel_tarUsuarioModificacion}"/>
+                        <h:outputText value="#{tarifaController.selected.tarUsuarioModificacion}" title="#{bundle.ViewTarifaTitle_tarUsuarioModificacion}"/>
+                        <h:outputText value="#{bundle.ViewTarifaLabel_tarFechaModificacion}"/>
+                        <h:outputText value="#{tarifaController.selected.tarFechaModificacion}" title="#{bundle.ViewTarifaTitle_tarFechaModificacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewTarifaLabel_tarEstado}"/>
+                        <h:outputText value="#{tarifaController.selected.tarEstado}" title="#{bundle.ViewTarifaTitle_tarEstado}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TarifaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

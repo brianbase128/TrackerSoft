@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ClienteEditDlg" widgetVar="ClienteEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditClienteTitle}">
+            <h:form id="ClienteEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{clienteController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditClienteLabel_cliEstado}" for="cliEstado" />
+                        <p:inputText id="cliEstado" value="#{clienteController.selected.cliEstado}" title="#{bundle.EditClienteTitle_cliEstado}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_cliNombre}" for="cliNombre" />
+                        <p:inputText id="cliNombre" value="#{clienteController.selected.cliNombre}" title="#{bundle.EditClienteTitle_cliNombre}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_cliTipoDocumento}" for="cliTipoDocumento" />
+                        <p:inputText id="cliTipoDocumento" value="#{clienteController.selected.cliTipoDocumento}" title="#{bundle.EditClienteTitle_cliTipoDocumento}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_cliNumeroDocumento}" for="cliNumeroDocumento" />
+                        <p:inputText id="cliNumeroDocumento" value="#{clienteController.selected.cliNumeroDocumento}" title="#{bundle.EditClienteTitle_cliNumeroDocumento}" />
+                        <p:outputLabel value="#{bundle.EditClienteLabel_cliCorreo}" for="cliCorreo" />
+                        <p:inputText id="cliCorreo" value="#{clienteController.selected.cliCorreo}" title="#{bundle.EditClienteTitle_cliCorreo}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{clienteController.update}" value="#{bundle.Save}" update="display,:ClienteListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ClienteEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ClienteEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

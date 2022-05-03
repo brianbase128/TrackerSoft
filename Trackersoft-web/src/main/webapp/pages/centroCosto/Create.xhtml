@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CentroCostoCreateDlg" widgetVar="CentroCostoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCentroCostoTitle}">
+            <h:form id="CentroCostoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{centroCostoController.selected != null}">
+                       
+                        <p:outputLabel value="#{bundle.CreateCentroCostoLabel_ccostNombre}" for="ccostNombre" />
+                        <p:inputText id="ccostNombre" value="#{centroCostoController.selected.ccostNombre}" title="#{bundle.CreateCentroCostoTitle_ccostNombre}" required="true"/>
+                        <p:outputLabel value="#{bundle.CreateCentroCostoLabel_ccostDescripcion}" for="ccostDescripcion" />
+                        <p:inputText id="ccostDescripcion" value="#{centroCostoController.selected.ccostDescripcion}" title="#{bundle.CreateCentroCostoTitle_ccostDescripcion}" />
+                        <p:outputLabel value="#{bundle.CreateCentroCostoLabel_ccostEstado}" for="ccostEstado" />
+                        <p:inputText id="ccostEstado" value="#{centroCostoController.selected.ccostEstado}" title="#{bundle.CreateCentroCostoTitle_ccostEstado}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{centroCostoController.create}" value="#{bundle.Save}" update="display,:CentroCostoListForm:datalist,:growl" oncomplete="handleSubmit(args,'CentroCostoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CentroCostoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CentroCostoViewDlg" widgetVar="CentroCostoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCentroCostoTitle}">
+            <h:form id="CentroCostoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{centroCostoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCentroCostoLabel_ccostId}"/>
+                        <h:outputText value="#{centroCostoController.selected.ccostId}" title="#{bundle.ViewCentroCostoTitle_ccostId}"/>
+                        <h:outputText value="#{bundle.ViewCentroCostoLabel_ccostNombre}"/>
+                        <h:outputText value="#{centroCostoController.selected.ccostNombre}" title="#{bundle.ViewCentroCostoTitle_ccostNombre}"/>
+                        <h:outputText value="#{bundle.ViewCentroCostoLabel_ccostDescripcion}"/>
+                        <h:outputText value="#{centroCostoController.selected.ccostDescripcion}" title="#{bundle.ViewCentroCostoTitle_ccostDescripcion}"/>
+                        <h:outputText value="#{bundle.ViewCentroCostoLabel_ccostUsuarioCreacion}"/>
+                        <h:outputText value="#{centroCostoController.selected.ccostUsuarioCreacion}" title="#{bundle.ViewCentroCostoTitle_ccostUsuarioCreacion}"/>
+                        <h:outputText value="#{bundle.ViewCentroCostoLabel_ccostFechaCreacion}"/>
+                        <h:outputText value="#{centroCostoController.selected.ccostFechaCreacion}" title="#{bundle.ViewCentroCostoTitle_ccostFechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCentroCostoLabel_ccostUsuarioModificacion}"/>
+                        <h:outputText value="#{centroCostoController.selected.ccostUsuarioModificacion}" title="#{bundle.ViewCentroCostoTitle_ccostUsuarioModificacion}"/>
+                        <h:outputText value="#{bundle.ViewCentroCostoLabel_ccostFechaModificacion}"/>
+                        <h:outputText value="#{centroCostoController.selected.ccostFechaModificacion}" title="#{bundle.ViewCentroCostoTitle_ccostFechaModificacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCentroCostoLabel_ccostEstado}"/>
+                        <h:outputText value="#{centroCostoController.selected.ccostEstado}" title="#{bundle.ViewCentroCostoTitle_ccostEstado}"/>
+                        <h:outputText value="#{bundle.ViewCentroCostoLabel_proyId}"/>
+                       
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CentroCostoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

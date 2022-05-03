@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProyectoEditDlg" widgetVar="ProyectoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditProyectoTitle}">
+            <h:form id="ProyectoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{proyectoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_proyNombre}" for="proyNombre" />
+                        <p:inputText id="proyNombre" value="#{proyectoController.selected.proyNombre}" title="#{bundle.EditProyectoTitle_proyNombre}" />
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_proyDescripcion}" for="proyDescripcion" />
+                        <p:inputText id="proyDescripcion" value="#{proyectoController.selected.proyDescripcion}" title="#{bundle.EditProyectoTitle_proyDescripcion}" />
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_proyEstado}" for="proyEstado" />
+                        <p:inputText id="proyEstado" value="#{proyectoController.selected.proyEstado}" title="#{bundle.EditProyectoTitle_proyEstado}" />
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_proyResponsable}" for="proyResponsable" />
+                        <p:inputText id="proyResponsable" value="#{proyectoController.selected.proyResponsable}" title="#{bundle.EditProyectoTitle_proyResponsable}" />
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_ccostId}" for="ccostId" />
+                        <p:selectOneMenu id="ccostId" value="#{proyectoController.selected.ccostId}" required="true" requiredMessage="#{bundle.EditProyectoRequiredMessage_ccostId}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{centroCostoController.itemsAvailableSelectOne}"
+                                           var="ccostIdItem"
+                                           itemValue="#{ccostIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_cliId}" for="cliId" />
+                        <p:selectOneMenu id="cliId" value="#{proyectoController.selected.cliId}" required="true" requiredMessage="#{bundle.EditProyectoRequiredMessage_cliId}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
+                                           var="cliIdItem"
+                                           itemValue="#{cliIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_usuId}" for="usuId" />
+                        <p:selectOneMenu id="usuId" value="#{proyectoController.selected.usuId}" required="true" requiredMessage="#{bundle.EditProyectoRequiredMessage_usuId}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
+                                           var="usuIdItem"
+                                           itemValue="#{usuIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{proyectoController.update}" value="#{bundle.Save}" update="display,:ProyectoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ProyectoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ProyectoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

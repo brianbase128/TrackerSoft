@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TarifaCreateDlg" widgetVar="TarifaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTarifaTitle}">
+            <h:form id="TarifaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tarifaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_tarId}" for="tarId" />
+                        <p:inputText id="tarId" value="#{tarifaController.selected.tarId}" title="#{bundle.CreateTarifaTitle_tarId}" required="true" requiredMessage="#{bundle.CreateTarifaRequiredMessage_tarId}"/>
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_tarNombre}" for="tarNombre" />
+                        <p:inputText id="tarNombre" value="#{tarifaController.selected.tarNombre}" title="#{bundle.CreateTarifaTitle_tarNombre}" />
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_tarTipo}" for="tarTipo" />
+                        <p:inputText id="tarTipo" value="#{tarifaController.selected.tarTipo}" title="#{bundle.CreateTarifaTitle_tarTipo}" />
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_tarValor}" for="tarValor" />
+                        <p:inputText id="tarValor" value="#{tarifaController.selected.tarValor}" title="#{bundle.CreateTarifaTitle_tarValor}" />
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_tarFechaInicio}" for="tarFechaInicio" />
+                        <p:calendar id="tarFechaInicio" pattern="MM/dd/yyyy HH:mm:ss" value="#{tarifaController.selected.tarFechaInicio}" title="#{bundle.EditTarifaTitle_tarFechaInicio}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_tarFechaFin}" for="tarFechaFin" />
+                        <p:calendar id="tarFechaFin" pattern="MM/dd/yyyy HH:mm:ss" value="#{tarifaController.selected.tarFechaFin}" title="#{bundle.EditTarifaTitle_tarFechaFin}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_tarUsuarioCreacion}" for="tarUsuarioCreacion" />
+                        <p:inputText id="tarUsuarioCreacion" value="#{tarifaController.selected.tarUsuarioCreacion}" title="#{bundle.CreateTarifaTitle_tarUsuarioCreacion}" />
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_tarFechaCreacion}" for="tarFechaCreacion" />
+                        <p:calendar id="tarFechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{tarifaController.selected.tarFechaCreacion}" title="#{bundle.EditTarifaTitle_tarFechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_tarUsuarioModificacion}" for="tarUsuarioModificacion" />
+                        <p:inputText id="tarUsuarioModificacion" value="#{tarifaController.selected.tarUsuarioModificacion}" title="#{bundle.CreateTarifaTitle_tarUsuarioModificacion}" />
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_tarFechaModificacion}" for="tarFechaModificacion" />
+                        <p:calendar id="tarFechaModificacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{tarifaController.selected.tarFechaModificacion}" title="#{bundle.EditTarifaTitle_tarFechaModificacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateTarifaLabel_tarEstado}" for="tarEstado" />
+                        <p:calendar id="tarEstado" pattern="MM/dd/yyyy HH:mm:ss" value="#{tarifaController.selected.tarEstado}" title="#{bundle.EditTarifaTitle_tarEstado}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tarifaController.create}" value="#{bundle.Save}" update="display,:TarifaListForm:datalist,:growl" oncomplete="handleSubmit(args,'TarifaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TarifaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
