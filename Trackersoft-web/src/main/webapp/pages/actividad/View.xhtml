@@ -21,8 +21,6 @@
                         <h:outputText value="#{actividadController.selected.actNombre}" title="#{bundle.ViewActividadTitle_actNombre}"/>
                         <h:outputText value="#{bundle.ViewActividadLabel_actDescripcion}"/>
                         <h:outputText value="#{actividadController.selected.actDescripcion}" title="#{bundle.ViewActividadTitle_actDescripcion}"/>
-                        <h:outputText value="#{bundle.ViewActividadLabel_actResponsable}"/>
-                        <h:outputText value="#{actividadController.selected.actResponsable}" title="#{bundle.ViewActividadTitle_actResponsable}"/>
                         <h:outputText value="#{bundle.ViewActividadLabel_actTiempoEstimado}"/>
                         <h:outputText value="#{actividadController.selected.actTiempoEstimado}" title="#{bundle.ViewActividadTitle_actTiempoEstimado}"/>
                         <h:outputText value="#{bundle.ViewActividadLabel_actTiempoInvertido}"/>
@@ -37,16 +35,10 @@
                        
                         <h:outputText value="#{bundle.ViewActividadLabel_actEstado}"/>
                         <h:outputText value="#{actividadController.selected.actEstado}" title="#{bundle.ViewActividadTitle_actEstado}"/>
-                        <h:outputText value="#{bundle.ViewActividadLabel_facId}"/>
-                        <h:outputText value="#{actividadController.selected.facId}" title="#{bundle.ViewActividadTitle_facId}"/>
-                        <h:outputText value="#{bundle.ViewActividadLabel_provId}"/>
-                        <h:outputText value="#{actividadController.selected.provId}" title="#{bundle.ViewActividadTitle_provId}"/>
                         <h:outputText value="#{bundle.ViewActividadLabel_proyId}"/>
-                        <h:outputText value="#{actividadController.selected.proyId}" title="#{bundle.ViewActividadTitle_proyId}"/>
-                        <h:outputText value="#{bundle.ViewActividadLabel_tarId}"/>
-                        <h:outputText value="#{actividadController.selected.tarId}" title="#{bundle.ViewActividadTitle_tarId}"/>
+                        <h:outputText value="#{actividadController.selected.proyId.proyNombre}" title="#{bundle.ViewActividadTitle_proyId}"/>
                         <h:outputText value="#{bundle.ViewActividadLabel_usuId}"/>
-                        <h:outputText value="#{actividadController.selected.usuId}" title="#{bundle.ViewActividadTitle_usuId}"/>
+                        <h:outputText value="#{actividadController.selected.usuId.usuNombre}" title="#{bundle.ViewActividadTitle_usuId}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="ActividadViewDialog.hide()"/>
                 </h:panelGroup>

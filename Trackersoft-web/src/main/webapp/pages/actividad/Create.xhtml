@@ -16,8 +16,7 @@
                         <p:inputText id="actNombre" value="#{actividadController.selected.actNombre}" title="#{bundle.CreateActividadTitle_actNombre}" />
                         <p:outputLabel value="#{bundle.CreateActividadLabel_actDescripcion}" for="actDescripcion" />
                         <p:inputText id="actDescripcion" value="#{actividadController.selected.actDescripcion}" title="#{bundle.CreateActividadTitle_actDescripcion}" />
-                        <p:outputLabel value="#{bundle.CreateActividadLabel_actResponsable}" for="actResponsable" />
-                        <p:inputText id="actResponsable" value="#{actividadController.selected.actResponsable}" title="#{bundle.CreateActividadTitle_actResponsable}" />
+                        
                         <p:outputLabel value="#{bundle.CreateActividadLabel_actTiempoEstimado}" for="actTiempoEstimado" />
                         <p:inputText id="actTiempoEstimado" value="#{actividadController.selected.actTiempoEstimado}" title="#{bundle.CreateActividadTitle_actTiempoEstimado}" />
                         <p:outputLabel value="#{bundle.CreateActividadLabel_actTiempoInvertido}" for="actTiempoInvertido" />
@@ -28,35 +27,21 @@
                         <p:inputText id="actComentario" value="#{actividadController.selected.actComentario}" title="#{bundle.CreateActividadTitle_actComentario}" />
                         <p:outputLabel value="#{bundle.CreateActividadLabel_actEstado}" for="actEstado" />
                         <p:inputText id="actEstado" value="#{actividadController.selected.actEstado}" title="#{bundle.CreateActividadTitle_actEstado}" />
-                        <p:outputLabel value="#{bundle.CreateActividadLabel_facId}" for="facId" />
-                        <p:selectOneMenu id="facId" value="#{actividadController.selected.facId}" required="true" requiredMessage="#{bundle.EditActividadRequiredMessage_facId}">
-                            <f:selectItems value="#{facturaController.itemsAvailableSelectOne}"
-                                           var="facIdItem"
-                                           itemValue="#{facIdItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateActividadLabel_provId}" for="provId" />
-                        <p:selectOneMenu id="provId" value="#{actividadController.selected.provId}" required="true" requiredMessage="#{bundle.EditActividadRequiredMessage_provId}">
-                            <f:selectItems value="#{provisionController.itemsAvailableSelectOne}"
-                                           var="provIdItem"
-                                           itemValue="#{provIdItem}"/>
-                        </p:selectOneMenu>
+
                         <p:outputLabel value="#{bundle.CreateActividadLabel_proyId}" for="proyId" />
                         <p:selectOneMenu id="proyId" value="#{actividadController.selected.proyId}" required="true" requiredMessage="#{bundle.EditActividadRequiredMessage_proyId}">
+                            <f:selectItem itemValue="" itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{proyectoController.itemsAvailableSelectOne}"
                                            var="proyIdItem"
-                                           itemValue="#{proyIdItem}"/>
+                                           itemValue="#{proyIdItem}" itemLabel="#{proyIdItem.proyNombre}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateActividadLabel_tarId}" for="tarId" />
-                        <p:selectOneMenu id="tarId" value="#{actividadController.selected.tarId}" required="true" requiredMessage="#{bundle.EditActividadRequiredMessage_tarId}">
-                            <f:selectItems value="#{tarifaController.itemsAvailableSelectOne}"
-                                           var="tarIdItem"
-                                           itemValue="#{tarIdItem}"/>
-                        </p:selectOneMenu>
+
                         <p:outputLabel value="#{bundle.CreateActividadLabel_usuId}" for="usuId" />
                         <p:selectOneMenu id="usuId" value="#{actividadController.selected.usuId}" required="true" requiredMessage="#{bundle.EditActividadRequiredMessage_usuId}">
+                            <f:selectItem itemValue="" itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
                                            var="usuIdItem"
-                                           itemValue="#{usuIdItem}"/>
+                                           itemValue="#{usuIdItem}" itemLabel="#{usuIdItem.usuNombre}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{actividadController.create}" value="#{bundle.Save}" update="display,:ActividadListForm:datalist,:growl" oncomplete="handleSubmit(args,'ActividadCreateDialog');"/>

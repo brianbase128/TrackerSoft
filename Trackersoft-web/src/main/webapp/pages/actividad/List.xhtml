@@ -37,12 +37,7 @@
                             </f:facet>
                             <h:outputText value="#{item.actDescripcion}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListActividadTitle_actResponsable}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.actResponsable}"/>
-                        </p:column>
+                     
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListActividadTitle_actTiempoEstimado}"/>
@@ -76,35 +71,19 @@
                             </f:facet>
                             <h:outputText value="#{item.actEstado}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListActividadTitle_facId}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.facId}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListActividadTitle_provId}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.provId}"/>
-                        </p:column>
+                       
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListActividadTitle_proyId}"/>
                             </f:facet>
-                            <h:outputText value="#{item.proyId}"/>
+                            <h:outputText value="#{item.proyId.proyNombre}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListActividadTitle_tarId}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.tarId}"/>
-                        </p:column>
+                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListActividadTitle_usuId}"/>
                             </f:facet>
-                            <h:outputText value="#{item.usuId}"/>
+                            <h:outputText value="#{item.usuId.usuNombre}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{actividadController.prepareCreate}" update=":ActividadCreateForm" oncomplete="PF('ActividadCreateDialog').show()"/>
