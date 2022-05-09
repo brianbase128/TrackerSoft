@@ -80,8 +80,7 @@ public class Tarifa implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date tarFechaModificacion;
     @Column(name = "TAR_ESTADO")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date tarEstado;
+    private String tarEstado;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tarId")
     private Collection<Actividad> actividadCollection;
 
@@ -172,11 +171,11 @@ public class Tarifa implements Serializable {
         this.tarFechaModificacion = tarFechaModificacion;
     }
 
-    public Date getTarEstado() {
+    public String getTarEstado() {
         return tarEstado;
     }
 
-    public void setTarEstado(Date tarEstado) {
+    public void setTarEstado(String tarEstado) {
         this.tarEstado = tarEstado;
     }
 

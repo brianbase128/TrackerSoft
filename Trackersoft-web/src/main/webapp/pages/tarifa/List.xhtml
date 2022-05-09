@@ -30,12 +30,7 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTarifaTitle_tarId}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.tarId}"/>
-                        </p:column>
+                       
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTarifaTitle_tarNombre}"/>
@@ -70,41 +65,12 @@
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                             </h:outputText>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTarifaTitle_tarUsuarioCreacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.tarUsuarioCreacion}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTarifaTitle_tarFechaCreacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.tarFechaCreacion}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                            </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTarifaTitle_tarUsuarioModificacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.tarUsuarioModificacion}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTarifaTitle_tarFechaModificacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.tarFechaModificacion}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                            </h:outputText>
-                        </p:column>
+                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTarifaTitle_tarEstado}"/>
                             </f:facet>
-                            <h:outputText value="#{item.tarEstado}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                            </h:outputText>
+                            <h:outputText value="#{item.tarEstado}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{tarifaController.prepareCreate}" update=":TarifaCreateForm" oncomplete="PF('TarifaCreateDialog').show()"/>

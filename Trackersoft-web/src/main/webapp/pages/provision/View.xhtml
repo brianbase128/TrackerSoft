@@ -12,8 +12,6 @@
             <h:form id="ProvisionViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{provisionController.selected != null}">
-                        <h:outputText value="#{bundle.ViewProvisionLabel_provId}"/>
-                        <h:outputText value="#{provisionController.selected.provId}" title="#{bundle.ViewProvisionTitle_provId}"/>
                         <h:outputText value="#{bundle.ViewProvisionLabel_provPeriodo}"/>
                         <h:outputText value="#{provisionController.selected.provPeriodo}" title="#{bundle.ViewProvisionTitle_provPeriodo}"/>
                         <h:outputText value="#{bundle.ViewProvisionLabel_provValor}"/>

@@ -12,8 +12,6 @@
             <h:form id="ProvisionEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{provisionController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditProvisionLabel_provId}" for="provId" />
-                        <p:inputText id="provId" value="#{provisionController.selected.provId}" title="#{bundle.EditProvisionTitle_provId}" required="true" requiredMessage="#{bundle.EditProvisionRequiredMessage_provId}"/>
                         <p:outputLabel value="#{bundle.EditProvisionLabel_provPeriodo}" for="provPeriodo" />
                         <p:inputText id="provPeriodo" value="#{provisionController.selected.provPeriodo}" title="#{bundle.EditProvisionTitle_provPeriodo}" />
                         <p:outputLabel value="#{bundle.EditProvisionLabel_provValor}" for="provValor" />
