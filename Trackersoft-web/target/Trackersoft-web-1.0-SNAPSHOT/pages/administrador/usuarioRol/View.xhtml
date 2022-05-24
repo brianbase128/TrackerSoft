@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UsuarioRolViewDlg" widgetVar="UsuarioRolViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUsuarioRolTitle}">
+            <h:form id="UsuarioRolViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{usuarioRolController.selected != null}">
+                        <h:outputText value="#{bundle.ViewUsuarioRolLabel_usurolId}"/>
+                        <h:outputText value="#{usuarioRolController.selected.usurolId}" title="#{bundle.ViewUsuarioRolTitle_usurolId}"/>
+                        <h:outputText value="#{bundle.ViewUsuarioRolLabel_usurolDescripcion}"/>
+                        <h:outputText value="#{usuarioRolController.selected.usurolDescripcion}" title="#{bundle.ViewUsuarioRolTitle_usurolDescripcion}"/>
+                        <h:outputText value="#{bundle.ViewUsuarioRolLabel_usurolEstado}"/>
+                        <h:outputText value="#{usuarioRolController.selected.usurolEstado}" title="#{bundle.ViewUsuarioRolTitle_usurolEstado}"/>
+                        <h:outputText value="#{bundle.ViewUsuarioRolLabel_rolId}"/>
+                        <h:outputText value="#{usuarioRolController.selected.rolId.rolNombre}" title="#{bundle.ViewUsuarioRolTitle_rolId}"/>
+                        <h:outputText value="#{bundle.ViewUsuarioRolLabel_usuId}"/>
+                        <h:outputText value="#{usuarioRolController.selected.usuId.usuNombre}" title="#{bundle.ViewUsuarioRolTitle_usuId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="UsuarioRolViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

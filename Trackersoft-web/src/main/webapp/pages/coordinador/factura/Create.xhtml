@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FacturaCreateDlg" widgetVar="FacturaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateFacturaTitle}">
+            <h:form id="FacturaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{facturaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateFacturaLabel_facCodigo}" for="facCodigo" />
+                        <p:inputText id="facCodigo" value="#{facturaController.selected.facCodigo}" title="#{bundle.CreateFacturaTitle_facCodigo}" />
+                        <p:outputLabel value="#{bundle.CreateFacturaLabel_facFechaVencimiento}" for="facFechaVencimiento" />
+                        <p:calendar id="facFechaVencimiento" pattern="MM/dd/yyyy HH:mm:ss" value="#{facturaController.selected.facFechaVencimiento}" title="#{bundle.EditFacturaTitle_facFechaVencimiento}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateFacturaLabel_facEstado}" for="facEstado" />
+                        <p:inputText id="facEstado" value="#{facturaController.selected.facEstado}" title="#{bundle.CreateFacturaTitle_facEstado}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{facturaController.create}" value="#{bundle.Save}" update="display,:FacturaListForm:datalist,:growl" oncomplete="handleSubmit(args,'FacturaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FacturaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

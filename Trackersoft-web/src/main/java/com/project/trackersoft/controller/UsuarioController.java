@@ -4,6 +4,7 @@ import com.project.trackersoft.boundary.UsuarioFacade;
 import com.project.trackersoft.entity.Usuario;
 import com.project.trackersoft.controller.util.JsfUtil;
 import com.project.trackersoft.controller.util.JsfUtil.PersistAction;
+import com.project.trackersoft.util.AuthenticationUtils;
 
 import java.io.Serializable;
 import java.math.BigInteger;
@@ -60,6 +61,12 @@ public class UsuarioController implements Serializable {
     public void create() {
         selected.setUsuUsuarioCreacion(BigInteger.ONE);
         selected.setUsuFechaCreacion(new Date());
+        try {
+            selected.setUsuToken(AuthenticationUtils.encodeSHA256(selected.getUsuToken()));
+        } catch (Exception e) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, e);
+            e.printStackTrace();
+        }
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UsuarioCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
@@ -69,6 +76,12 @@ public class UsuarioController implements Serializable {
     public void update() {
         selected.setUsuUsuarioModificacion(BigInteger.ONE);
         selected.setUsuFechaModificacion(new Date());
+        try {
+            selected.setUsuToken(AuthenticationUtils.encodeSHA256(selected.getUsuToken()));
+        } catch (Exception e) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, e);
+            e.printStackTrace();
+        }
         persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("UsuarioUpdated"));
     }
 

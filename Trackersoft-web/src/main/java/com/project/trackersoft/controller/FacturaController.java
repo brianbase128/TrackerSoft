@@ -6,6 +6,7 @@ import com.project.trackersoft.controller.util.JsfUtil;
 import com.project.trackersoft.controller.util.JsfUtil.PersistAction;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -54,8 +55,13 @@ public class FacturaController implements Serializable {
         initializeEmbeddableKey();
         return selected;
     }
+    
+    public void process(){
+        ejbFacade.procesarFactura();
+    }
 
     public void create() {
+        this.selected.setFacFechaCreacion(new Date());
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("FacturaCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.

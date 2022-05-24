@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Autenticación</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet name="layout/styles/layout.css"/>
+    </h:head>
+    <h:body>
+
+        <div class="wrapper overlay row0">
+            <div id="topbar" class="hoc clear">
+                <div class="fl_left"> 
+                    <!-- ################################################################################################ -->
+                    <ul class="nospace">
+                        <li><i class="fas fa-phone"></i> +00 (123) 456 7890</li>
+                    </ul>
+                </div>
+                <div class="fl_right"> 
+                    <ul class="nospace">
+                        <li><a href="index.xhtml"><i class="fas fa-home"></i></a></li>
+                        <li><a href="#" title="Help Centre"><i class="far fa-life-ring"></i></a></li>
+                        <li><a href="#" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
+                        <li><a href="#" title="Sign Up"><i class="fas fa-edit"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bgded"> 
+            <div class="wrapper row1">
+                <header id="header" class="hoc clear">
+                    <div id="logo" class="fl_left"> 
+                        <!-- ################################################################################################ -->
+                        <h1 class="logoname"><a href="index.xhtml">Tracker<span>Soft</span></a></h1>
+                    </div>
+
+                </header>
+            </div></div>
+        <br/>
+        <div class="wrapper row2">
+            <main class="hoc container clear"> 
+                <div align="center">
+
+                    <h:form>
+                        <h3>Autenticación</h3>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel for="user">Usuario:</h:outputLabel>
+                            <h:inputText id="user" value="#{autenticacionBean.userLogin}" required="true"
+                                         requiredMessage="El usuario es requerido"></h:inputText>
+                            <h:outputLabel for="password">Contraseña:</h:outputLabel>
+                            <h:inputSecret id="password" value="#{autenticacionBean.pass}"
+                                           required="true" requiredMessage="La contraseña es requerida"></h:inputSecret>
+                            <h:inputHidden></h:inputHidden>
+                            <h:commandButton action="#{autenticacionBean.login}" value="Login"></h:commandButton>
+                        </h:panelGrid>
+                    </h:form>
+                </div>
+            </main>
+        </div>
+    </h:body>
+</html>

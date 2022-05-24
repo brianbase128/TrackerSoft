@@ -4,6 +4,10 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
+    <context-param>
+        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+        <param-value>.xhtml</param-value>
+    </context-param>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -11,7 +15,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/faces/*</url-pattern>
+        <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -19,6 +23,78 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/index.xhtml</welcome-file>
+        <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
+    <security-constraint>
+        <display-name>coordinadorConstraint</display-name>
+        <web-resource-collection>
+            <web-resource-name>coordinadorRes</web-resource-name>
+            <description>
+                coordinadorRes
+            </description>
+            <url-pattern>/pages/coordinador/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>
+                coordinadorConstraint
+            </description>
+            <role-name>coordinador</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>administradorConstraint</display-name>
+        <web-resource-collection>
+            <web-resource-name>administradorRes</web-resource-name>
+            <description>                 administradorRes             </description>
+            <url-pattern>/pages/administrador/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>
+                administradorConstraint
+            </description>
+            <role-name>administrador</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>operadorConstraint</display-name>
+        <web-resource-collection>
+            <web-resource-name>operadorRes</web-resource-name>
+            <description>
+                operadorRes
+            </description>
+            <url-pattern>/pages/operador/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>
+                operadorConstraint
+            </description>
+            <role-name>operador</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>jdbc-auth-realm</realm-name>
+        <form-login-config>
+            <form-login-page>/login.xhtml</form-login-page>
+            <form-error-page>/login_error.xhtml</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <description>
+            coordinador
+        </description>
+        <role-name>coordinador</role-name>
+    </security-role>
+    <security-role>
+        <description>
+            operador
+        </description>
+        <role-name>operador</role-name>
+    </security-role>
+    <security-role>
+        <description>
+            administrador
+        </description>
+        <role-name>administrador</role-name>
+    </security-role>
 </web-app>

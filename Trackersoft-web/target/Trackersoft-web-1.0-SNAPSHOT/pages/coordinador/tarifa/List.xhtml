@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/templateCoordinador.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTarifaTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            
+            <h6 class="heading">Tarifa</h6>
+            
+            <h:form id="TarifaListForm">
+                <p:panel header="#{bundle.ListTarifaTitle}">
+                    <p:dataTable id="datalist" value="#{tarifaController.items}" var="item"
+                                 selectionMode="single" selection="#{tarifaController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.tarId}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                       
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTarifaTitle_tarNombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tarNombre}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTarifaTitle_tarTipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tarTipo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTarifaTitle_tarValor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tarValor}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTarifaTitle_tarFechaInicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tarFechaInicio}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTarifaTitle_tarFechaFin}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tarFechaFin}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTarifaTitle_tarEstado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tarEstado}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{tarifaController.prepareCreate}" update=":TarifaCreateForm" oncomplete="PF('TarifaCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":TarifaViewForm" oncomplete="PF('TarifaViewDialog').show()" disabled="#{empty tarifaController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":TarifaEditForm" oncomplete="PF('TarifaEditDialog').show()" disabled="#{empty tarifaController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{tarifaController.destroy}" update=":growl,datalist" disabled="#{empty tarifaController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>
